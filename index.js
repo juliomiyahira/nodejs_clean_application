@@ -1,14 +1,12 @@
-const express = require("express");
-const app = express();
-const SqLiteDatabaseManager = require("./config/SqLiteDatabaseManager");
-const userRoutes = require("./routes/UserRoutes");
+const app = require("./app");
+const Logger = require("./utils/Logger");
 
-app.use(express.urlencoded({extended: false}));
-SqLiteDatabaseManager.getInstance().open();
 
-app.get("/", (req, res) => {
-    res.send("OI!!!");
-})
+var server = app.listen(3000, () => {
+    Logger.info("oi!");
+    Logger.info("oi!");
+    Logger.info("oi!");
+    Logger.fatal("oi!");
+} );
 
-app.get("/user", userRoutes);
 app.listen(3001);
